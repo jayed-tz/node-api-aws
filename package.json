@@ -1,0 +1,41 @@
+{
+  "name": "task-master-advanced",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "nodemon",
+    "deploy": "serverless deploy -s joyn",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.133",
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/serverless": "^3.12.22",
+    "@types/supertest": "^6.0.2",
+    "aws-lambda": "^1.0.7",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "serverless": "^3.38.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "inversify": "^6.0.2",
+    "reflect-metadata": "^0.2.1",
+    "serverless-http": "^3.2.0"
+  }
+}

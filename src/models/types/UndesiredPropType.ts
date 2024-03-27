@@ -1,0 +1,1 @@
+export type UndesiredPropType = 'plot' | 'duration' | 'userrating';

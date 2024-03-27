@@ -1,0 +1,50 @@
+service: movieMetadata
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+  apiGateway:
+    apiGateway:
+      apiKeys:
+        - name: ApiKey
+          value: REPLACE_KEY
+    usagePlan:
+      quota:
+        limit: 1000
+        period: MONTH
+      throttle:
+        burstLimit: 10
+        rateLimit: 10
+  movieMetadataV3
+  ApiKeyV3
+functions:
+  movie:
+    handler: src/aws/lambda/movie.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          private: true
+          authorizer:
+            name: apikey
+            type: apiKey
+            # Reference API key by name
+            apiKeyRef: 'apiKeyv2'
+      - http:
+          path: /
+          method: ANY
+          private: true
+          authorizer:
+            name: apikey
+            type: apiKey
+            # Reference API key by name
+            apiKeyRef: 'apiKeyv2'
+
+plugins:
+  - serverless-plugin-typescript
+
+package:
+  include:
+    - src/db/files/*.json
